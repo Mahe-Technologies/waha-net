@@ -237,6 +237,7 @@ namespace Waha
     /// <summary>
     /// Response when retrieving a QR code for authentication.
     /// </summary>
+    [Obsolete("Use Mahe.Waha.Auth.AuthQrResponse")]
     public record AuthQrResponse
     {
         [JsonPropertyName("qrUrl")]
@@ -1053,6 +1054,7 @@ namespace Waha
     /// <summary>
     /// Represents a group in the WAHA.
     /// </summary>
+    [Obsolete("Use Mahe.Waha.Groups.Group")]
     public record Group
     {
         [JsonPropertyName("id")]

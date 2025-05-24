@@ -132,6 +132,7 @@
         /// <param name="sessionName">Name or ID of the session.</param>
         /// <param name="format">QR code output format. Available values: image, raw</param>
         /// <param name="cancellationToken">Cancellation token.</param>
+        [Obsolete("Use WahaService.Auth.GetQrAsync endpoint")]
         Task<AuthQrResponse> GetAuthQrAsync(string sessionName, string format = "image", CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -753,6 +754,7 @@
         /// <param name="limit">Max number of groups to retrieve.</param>
         /// <param name="offset">Offset for pagination.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
+        [Obsolete("Use WahaService.Groups.GetGroupsAsync endpoint")]
         Task<IReadOnlyList<Group>> GetGroupsAsync(string session, bool? sortAsc = null, string? sortBy = null, int? limit = null, int? offset = null, CancellationToken cancellationToken = default);
 
         /// <summary>

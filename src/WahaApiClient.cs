@@ -163,6 +163,7 @@ namespace Waha
 
         #region [ AUTH ]
 
+        [Obsolete("Use WahaService.Auth.GetQrAsync endpoint")]
         public async Task<AuthQrResponse> GetAuthQrAsync(string sessionName, string format = "image", CancellationToken cancellationToken = default)
         {
             var url = $"/api/{sessionName}/auth/qr";
@@ -734,6 +735,7 @@ namespace Waha
                    ?? throw new InvalidOperationException("CreateGroup returned null");
         }
 
+        [Obsolete("Use WahaService.Groups.GetGroupsAsync endpoint")]
         public async Task<IReadOnlyList<Group>> GetGroupsAsync(string session, bool? sortAsc = null, string? sortBy = null, int? limit = DEFAULT_LIMIT, int? offset = null, CancellationToken cancellationToken = default)
         {
             var url = $"/api/{session}/groups";
