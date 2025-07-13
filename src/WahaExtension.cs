@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net.Http;
 using Waha;
 
 namespace Microsoft.Extensions.Hosting
@@ -75,7 +76,11 @@ namespace Microsoft.Extensions.Hosting
                         settings = WahaSettings.Default;
                     }
 
-                    client = new WahaApiClient(new HttpClient { BaseAddress = settings.Endpoint });
+                    var httpClientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
+                    var httpClient = httpClientFactory.CreateClient("waha");
+                    httpClient.BaseAddress ??= settings.Endpoint;
+
+                    client = new WahaApiClient(httpClient);
                 }
                 catch (Exception ex)
                 {
