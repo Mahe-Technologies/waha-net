@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Waha
 {
@@ -680,6 +680,11 @@ namespace Waha
 
         [JsonPropertyName("from")]
         public string From { get; set; }
+
+        // For a group poll, "from" is the group chat id (@g.us) - the actual voter is only
+        // identified here, as their phone number (@c.us) or, more often, their privacy lid (@lid).
+        [JsonPropertyName("participant")]
+        public string? Participant { get; set; }
 
         [JsonPropertyName("fromMe")]
         public bool FromMe { get; set; }
